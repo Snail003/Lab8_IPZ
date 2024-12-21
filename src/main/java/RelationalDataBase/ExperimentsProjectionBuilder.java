@@ -3,6 +3,10 @@ package RelationalDataBase;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A class that builds a projection of experiments table.
+ */
+
 public class ExperimentsProjectionBuilder{
     private ExperimentTable baseTable;
     private List<String> attributes =new ArrayList<>();

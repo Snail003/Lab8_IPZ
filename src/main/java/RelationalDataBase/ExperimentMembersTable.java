@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Class that represents a table with data about testees.
+ */
+
 public class ExperimentMembersTable implements RelationalTable <ExperimentMember>{
     private HashMap<Integer, ExperimentMember> experimentMembers = new HashMap<>();
     private List<String> attributes = new ArrayList<>(List.of("TESTEE NUMBER","NAME", "SURNAME", "WEIGHT", "AGE", "BIRTHDAY"));
@@ -20,10 +24,18 @@ public class ExperimentMembersTable implements RelationalTable <ExperimentMember
         this.count = prototype.count;
     }
 
+    /**
+     * Method to add data about testee to table.
+     */
+
     @Override
     public void add(ExperimentMember element) {
         experimentMembers.put(count++, element);
     }
+
+    /**
+     * Method to add attribute to table.
+     */
 
     @Override
     public void addAttribute(String attribute) {
@@ -32,10 +44,18 @@ public class ExperimentMembersTable implements RelationalTable <ExperimentMember
         }
     }
 
+    /**
+     * Method to remove data about testee from table.
+     */
+
     @Override
     public void remove(int number) {
         experimentMembers.remove(number);
     }
+
+    /**
+     * Method to remove attribute from table.
+     */
 
     @Override
     public void removeAttribute(String attribute) {
@@ -44,15 +64,27 @@ public class ExperimentMembersTable implements RelationalTable <ExperimentMember
         }
     }
 
+    /**
+     * Method to clear all attributes.
+     */
+
     @Override
     public void clearAttributes() {
         attributes.clear();
     }
 
+    /**
+     * Method to get data about certain testee by its number.
+     */
+
     @Override
     public ExperimentMember getElement(int number) {
         return experimentMembers.getOrDefault(number, null);
     }
+
+    /**
+     * Method to print out table to client.
+     */
 
     @Override
     public void showTable() {
@@ -82,6 +114,10 @@ public class ExperimentMembersTable implements RelationalTable <ExperimentMember
         }
         System.out.println(formatAsTable(rows));
     }
+
+    /**
+     * Method to clone this class.
+     */
 
     @Override
     public RelationalTable<ExperimentMember> clone() {

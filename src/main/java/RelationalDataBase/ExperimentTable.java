@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Class that represents a table with data about experiments.
+ */
+
 public class ExperimentTable implements RelationalTable <ExperimentElement> {
     private HashMap<Integer, ExperimentElement> experimentList = new HashMap<>();
     private List<String> attributes = new ArrayList<>(List.of("NUMBER","DESCRIPTION", "TESTEE NUMBER", "DATE"));
@@ -20,10 +24,18 @@ public class ExperimentTable implements RelationalTable <ExperimentElement> {
         this.count = prototype.count;
     }
 
+    /**
+     * Method to add data about experiment to table.
+     */
+
     @Override
     public void add(ExperimentElement element) {
         experimentList.put(count++, element);
     }
+
+    /**
+     * Method to add attribute to table.
+     */
 
     @Override
     public void addAttribute(String attribute) {
@@ -32,10 +44,18 @@ public class ExperimentTable implements RelationalTable <ExperimentElement> {
         }
     }
 
+    /**
+     * Method to remove data about experiment from table.
+     */
+
     @Override
     public void remove(int number) {
         experimentList.remove(number);
     }
+
+    /**
+     * Method to remove attribute from table.
+     */
 
     @Override
     public void removeAttribute(String attribute) {
@@ -44,15 +64,27 @@ public class ExperimentTable implements RelationalTable <ExperimentElement> {
         }
     }
 
+    /**
+     * Method to clear all attributes.
+     */
+
     @Override
     public void clearAttributes() {
         attributes.clear();
     }
 
+    /**
+     * Method to get data about certain experiment by its number.
+     */
+
     @Override
     public ExperimentElement getElement(int number) {
         return experimentList.getOrDefault(number, null);
     }
+
+    /**
+     * Method to print out table to client.
+     */
 
     @Override
     public void showTable() {
@@ -76,6 +108,10 @@ public class ExperimentTable implements RelationalTable <ExperimentElement> {
         }
         System.out.println(formatAsTable(rows));
     }
+
+    /**
+     * Method to clone this class.
+     */
 
     @Override
     public RelationalTable<ExperimentElement> clone() {

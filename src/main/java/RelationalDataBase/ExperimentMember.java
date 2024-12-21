@@ -1,5 +1,9 @@
 package RelationalDataBase;
 
+/**
+ * A class that represents data about testee.
+ */
+
 public class ExperimentMember {
     private String name;
     private String surname;

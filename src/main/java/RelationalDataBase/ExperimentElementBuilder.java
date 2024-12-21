@@ -1,5 +1,9 @@
 package RelationalDataBase;
 
+/**
+ * A class that builds an experiment data class.
+ */
+
 public class ExperimentElementBuilder {
     private String description;
     private int member_number;

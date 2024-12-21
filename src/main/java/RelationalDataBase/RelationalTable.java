@@ -2,6 +2,10 @@ package RelationalDataBase;
 
 import java.util.List;
 
+/**
+ * An interface for relational tables.
+ */
+
 public interface RelationalTable <T> {
     void add(T element);
     void addAttribute(String attribute);
@@ -11,6 +15,10 @@ public interface RelationalTable <T> {
     void showTable();
     RelationalTable <T> clone ();
     void clearAttributes();
+
+    /**
+     * Formats output as table.
+     */
 
     default String formatAsTable(List<List<String>> rows)
     {
